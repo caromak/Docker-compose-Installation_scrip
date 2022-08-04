@@ -16,8 +16,9 @@ echo " Proceed and run the next command"
 
 else
 
+echo " Come back when you are ready for the installation"
 
-exit 5
+fi
 
 sudo curl -L https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 
@@ -30,13 +31,19 @@ then
 echo " Run the next command"
 
 chmod +x /usr/local/bin/docker-compose
+
 else
+
 exit 1
+
 fi
+
 sleep 3
+
 docker-compose --version
 
 if [ $? -eq 0 ]
+
 then
 
 echo " Docker compose was installed successfully, there is no need to run the next command"
